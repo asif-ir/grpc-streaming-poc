@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package articlePackage;
+
+service ArticleService {
+  rpc createArticle(Article) returns (Article);
+  rpc readArticlesStream(voidNoParam) returns (stream Article);
+}
+
+message voidNoParam {}
+
+message Article {
+  int32 id = 1;
+  string title = 2;
+}
+
+message Articles {
+  repeated Article articles = 1;
+}
